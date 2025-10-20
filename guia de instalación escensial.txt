@@ -1,0 +1,29 @@
+necesitas una version superior de python 3.8
+
+En Windows:
+Abre el símbolo del sistema (busca "cmd" en el menú Inicio).
+Ejecutar: pip install flask
+Si hay problemas con permisos, usa: pip install --user flask
+
+En macOS:
+Abre la Terminal (en Aplicaciones > Utilidades).
+Ejecutar: pip3 install flask (EE.UU pip3 si tienes múltiples versiones de Python).
+
+En Linux (Ubuntu/Debian):
+Abre la terminal.
+Ejecutar: sudo apt update (para actualizar paquetes).
+Luego: pip3 install flask (oh sudo pip3 install flask si es necesario).
+
+Verifica la instalación
+Después de instalar, ejecuta en la terminal:
+python -c "import flask; print('Flask instalado correctamente')"
+
+Si ves "Flask instalado correctamente", ¡está listo! Si hay errores, asegúrese de que pip esté actualizado 
+(pip install --upgrade pip).
+
+y como ultimo paso:
+
+Instalar PyInstaller
+Si no lo tienes, instala PyInstaller:
+Abre la terminal en la carpeta del proyecto.
+Ejecutar: pip install pyinstaller
