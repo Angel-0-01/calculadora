@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Híbrida</title>
+    <link rel="stylesheet" href="../static/styles.css">  <!-- Ruta relativa -->
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora</h1>
+        <div class="calculator">
+            <input type="text" id="display" readonly placeholder="0">
+            <div class="buttons">
+                <button class="btn number" onclick="appendToDisplay('7')">7</button>
+                <button class="btn number" onclick="appendToDisplay('8')">8</button>
+                <button class="btn number" onclick="appendToDisplay('9')">9</button>
+                <button class="btn operator" onclick="appendToDisplay('+')">+</button>
+                
+                <button class="btn number" onclick="appendToDisplay('4')">4</button>
+                <button class="btn number" onclick="appendToDisplay('5')">5</button>
+                <button class="btn number" onclick="appendToDisplay('6')">6</button>
+                <button class="btn operator" onclick="appendToDisplay('-')">-</button>
+                
+                <button class="btn number" onclick="appendToDisplay('1')">1</button>
+                <button class="btn number" onclick="appendToDisplay('2')">2</button>
+                <button class="btn number" onclick="appendToDisplay('3')">3</button>
+                <button class="btn operator" onclick="appendToDisplay('*')">*</button>
+                
+                <button class="btn number" onclick="appendToDisplay('0')">0</button>
+                <button class="btn clear" onclick="clearDisplay()">C</button>
+                <button class="btn equal" onclick="calculate()">=</button>
+                <button class="btn operator" onclick="appendToDisplay('/')">/</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let display = document.getElementById('display');
+
+        function appendToDisplay(value) {
+            if (display.value === '0' && !isNaN(value)) {
+                display.value = value;
+            } else {
+                display.value += value;
+            }
+        }
+
+        function clearDisplay() {
+            display.value = '';
+        }
+
+        function calculate() {
+            try {
+                let result = eval(display.value);
+                display.value = result;
+            } catch (error) {
+                display.value = 'Error';
+                setTimeout(() => display.value = '', 2000);
+            }
+        }
+    </script>
+</body>
+</html>

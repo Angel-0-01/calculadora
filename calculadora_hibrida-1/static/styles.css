@@ -1,0 +1,164 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fondo animado */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #f9ca24);
+    background-size: 400% 400%;
+    animation: gradientShift 10s ease infinite;  /* Animación de gradiente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #fff;
+    overflow: hidden;  /* Evita scroll innecesario */
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    text-align: center;
+    animation: fadeIn 1s ease-in;  /* Animación de entrada */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(45deg, #fff, #f9ca24);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Calculadora */
+.calculator {
+    background: rgba(0, 0, 0, 0.8);  /* Fondo semi-transparente */
+    border-radius: 25px;
+    padding: 30px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 255, 255, 0.1);  /* Sombra profunda */
+    width: 320px;
+    max-width: 90vw;
+    backdrop-filter: blur(10px);  /* Efecto de vidrio */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Display */
+#display {
+    width: 100%;
+    height: 60px;
+    font-size: 28px;
+    text-align: right;
+    margin-bottom: 20px;
+    padding: 15px;
+    border: none;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3);
+    outline: none;
+    transition: box-shadow 0.3s ease;
+}
+
+#display:focus {
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.5), 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Botones */
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.btn {
+    height: 60px;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.btn:active {
+    transform: translateY(0) scale(0.98);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn.number {
+    background: linear-gradient(45deg, #3498db, #2980b9);
+    color: #fff;
+}
+
+.btn.operator {
+    background: linear-gradient(45deg, #e74c3c, #c0392b);
+    color: #fff;
+}
+
+.btn.clear {
+    background: linear-gradient(45deg, #f39c12, #e67e22);
+    color: #fff;
+}
+
+.btn.equal {
+    background: linear-gradient(45deg, #27ae60, #2ecc71);
+    color: #fff;
+    grid-column: span 2;
+    box-shadow: 0 4px 15px rgba(39, 174, 96, 0.4);  /* Glow verde */
+}
+
+/* Responsividad */
+@media (max-width: 480px) {
+    .calculator {
+        width: 280px;
+        padding: 20px;
+    }
+    #display {
+        font-size: 24px;
+        height: 50px;
+    }
+    .btn {
+        height: 50px;
+        font-size: 18px;
+    }
+    h1 {
+        font-size: 2em;
+    }
+}
